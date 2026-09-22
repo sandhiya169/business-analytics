@@ -28,12 +28,6 @@
         d="M26.4 38V26h4l.7-4.8h-4.7v-3c0-1.4.5-2.4 2.4-2.4h2.5V11.5c-.4-.1-1.9-.2-3.6-.2-3.6 0-6.1 2.2-6.1 6.2v3.7h-4.1V26h4.1v12z"
         fill="#fff" />
     </symbol>
-    <symbol id="i-twitter" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="24" fill="#8980f1" />
-      <path
-        d="M36.5 15.6c-.9.4-1.8.7-2.8.8 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2a4.9 4.9 0 0 0-8.4 4.5c-4.1-.2-7.7-2.2-10.1-5.100a4.900 4.900 0 0 0 1.500 6.600c-.8 0-1.600-.2-2.200-.6 0 2.400 1.700 4.400 3.900 4.800-.7.200-1.400.2-2.200.1.600 2 2.400 3.400 4.600 3.400a9.800 9.800 0 0 1-7.200 2c2.200 1.400 4.800 2.200 7.500 2.200 9.100 0 14-7.500 14-14v-.6c1-.7 1.800-1.600 2.400-2.600z"
-        fill="#fff" />
-    </symbol>
     <symbol id="i-user" viewBox="0 0 24 24">
       <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2" />
       <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -90,21 +84,17 @@
         <p class="notice" id="registeredNotice" role="status" hidden>Account created. Log in to continue.</p>
 
         <div class="social-row">
-          <a href="404.html" class="btn-google" data-provider="Google">
+          <a href="404.html" class="btn-google">
             <svg class="social-icon" aria-hidden="true">
               <use href="#i-google" />
             </svg>
             Sign in with Google
           </a>
-          <a href="404.html" class="btn-social" data-provider="Facebook" aria-label="Sign in with Facebook">
+          <a href="404.html" class="btn-facebook">
             <svg class="social-icon" aria-hidden="true">
               <use href="#i-facebook" />
             </svg>
-          </a>
-          <a href="404.html" class="btn-social" data-provider="Twitter" aria-label="Sign in with Twitter">
-            <svg class="social-icon" aria-hidden="true">
-              <use href="#i-twitter" />
-            </svg>
+            Sign in with Facebook
           </a>
         </div>
 
@@ -134,14 +124,14 @@
             <div class="field">
               <label class="field-label" for="loginEmail">Email Address</label>
               <input class="pill-input" id="loginEmail" type="email" inputmode="email" autocomplete="email"
-                data-validate="email" aria-describedby="loginEmailError">
+                placeholder="Enter your email address" data-validate="email" aria-describedby="loginEmailError">
               <p class="field-error" id="loginEmailError" aria-live="polite"></p>
             </div>
 
             <div class="field">
               <label class="field-label" for="loginPassword">Password</label>
               <input class="pill-input" id="loginPassword" type="password" autocomplete="current-password"
-                data-validate="loginPassword" aria-describedby="loginPasswordError">
+                placeholder="Enter your password" data-validate="loginPassword" aria-describedby="loginPasswordError">
               <p class="field-error" id="loginPasswordError" aria-live="polite"></p>
             </div>
 

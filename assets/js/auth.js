@@ -144,15 +144,6 @@
       submitBtn.textContent = 'Signing in…';
       goToDashboard(`Signing you in as ${selectedRole(loginForm)}…`);
     });
-
-    // Alternative sign-in: demo only, no provider is contacted
-    document.querySelectorAll('[data-provider]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (submitBtn.disabled) return;
-        submitBtn.disabled = true;
-        goToDashboard(`Continuing with ${btn.dataset.provider} as ${selectedRole(loginForm)}…`);
-      });
-    });
   }
 
   /* ---------- Signup page ---------- */
@@ -161,7 +152,6 @@
   if (signupForm) {
     const submitBtn = document.getElementById('signupSubmit');
     const statusEl  = document.getElementById('signupStatus');
-    const backBtn   = document.getElementById('backBtn');
 
     wireLiveValidation(signupForm);
 
@@ -180,18 +170,6 @@
       }, 900);
     });
 
-    // Back: return to the previous page on this site, otherwise go home
-    if (backBtn) {
-      backBtn.addEventListener('click', (event) => {
-        const cameFromSite = document.referrer && new URL(document.referrer).origin === window.location.origin;
-        if (cameFromSite && window.history.length > 1) {
-          event.preventDefault();
-          window.history.back();
-        } else {
-          backBtn.setAttribute('href', HOME_URL);
-        }
-      });
-    }
   }
 
   /* ----------------------------------------------------------

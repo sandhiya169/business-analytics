@@ -286,29 +286,33 @@ button {
 /* ---------- Alternative sign-in ---------- */
 
 .social-row {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 3vw, 40px);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.btn-google {
+.btn-google,
+.btn-facebook {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  min-width: 0;
   height: 52px;
-  padding: 0 18px 0 10px;
+  padding: 0 16px 0 10px;
   background: #fff;
   border: 1px solid var(--black);
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: -.2px;
+  white-space: nowrap;
   transition: background-color .15s ease, transform .15s ease;
 }
 
-.btn-google:hover {
+.btn-google:hover,
+.btn-facebook:hover {
   background: rgba(137, 128, 241, .08);
 }
 
@@ -316,25 +320,6 @@ button {
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-}
-
-.btn-social {
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border: 0;
-  background: none;
-  border-radius: 50%;
-  transition: transform .15s ease;
-}
-
-.btn-social:hover {
-  transform: translateY(-2px);
-}
-
-.btn-social .social-icon {
-  width: 100%;
-  height: 100%;
 }
 
 .divider {
@@ -359,8 +344,8 @@ button {
 
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px clamp(16px, 2.6vw, 32px);
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .field {
@@ -407,6 +392,12 @@ button {
   outline: none;
   border-color: var(--purple-dark);
   box-shadow: 0 0 0 3px rgba(137, 128, 241, .28);
+}
+
+.pill-input::placeholder {
+  color: #9a9aa5;
+  opacity: 1;
+  font-weight: 500;
 }
 
 .field.is-invalid .pill-input {
@@ -1001,27 +992,22 @@ button {
   }
 
   .social-row {
+    grid-template-columns: 1fr;
     gap: 10px;
-    flex-wrap: nowrap;
   }
 
-  .btn-google {
-    height: 46px;
-    font-size: 13.5px;
-    padding: 0 12px 0 7px;
-    gap: 8px;
-    min-width: 0;
+  .btn-google,
+  .btn-facebook {
+    width: 100%;
+    height: 48px;
+    font-size: 14.5px;
+    padding: 0 14px 0 8px;
   }
 
-  .btn-google .social-icon {
+  .btn-google .social-icon,
+  .btn-facebook .social-icon {
     width: 30px;
     height: 30px;
-  }
-
-  .btn-social {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
   }
 
   .form-grid {
@@ -1077,8 +1063,9 @@ button {
     border-radius: 20px;
   }
 
-  .btn-google {
-    font-size: 13px;
+  .btn-google,
+  .btn-facebook {
+    font-size: 13.5px;
   }
 }
 

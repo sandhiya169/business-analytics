@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameEl   = document.querySelector('.dash-user-name');
     const avatarEl = document.querySelector('.dash-user-avatar');
     const roleEl   = document.querySelector('.dash-user-role');
+    const sidebarEmailEl = document.getElementById('dashSidebarEmail');
+
+    if (sidebarEmailEl) {
+      sidebarEmailEl.textContent = email;
+      sidebarEmailEl.title = email;
+    }
 
     if (nameEl) {
       nameEl.textContent = email;
