@@ -145,7 +145,7 @@ button {
    ============================================================ */
 
 .auth--login .auth-visual {
-  background: var(--purple) url('../images/4.webp') center / cover no-repeat;
+  background: var(--purple) url('../images/image-4.webp') center / cover no-repeat;
   border-radius: 0 var(--curve) 0 0;
   overflow: hidden;
   display: flex;
@@ -888,7 +888,7 @@ button {
 /* ---------- Signup: image showcase panel ---------- */
 
 .auth-visual--hex {
-  background: #101c34 url('../images/6.webp') center / cover no-repeat;
+  background: #101c34 url('../images/crm.webp') center / cover no-repeat;
   border-radius: 0 0 0 var(--curve);
   overflow: hidden;
   display: flex;

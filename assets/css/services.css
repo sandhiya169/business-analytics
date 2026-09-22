@@ -94,16 +94,16 @@
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1.08;
-      border-radius: 30px 30px 30px 10px;
-      border: 1.5px solid var(--black);
-      background: linear-gradient(150deg, var(--tab-a, #eef0ff), var(--tab-b, #f8f7ff));
+      border-radius: 24px;
+      border: none;
+      background: #eef0ff;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--black);
-      box-shadow: 0 14px 28px rgba(20,20,40,.08);
-      transition: transform .18s ease, box-shadow .18s ease;
-      overflow: visible;
+      box-shadow: 0 14px 28px rgba(20,20,40,.10);
+      transition: transform .22s ease, box-shadow .22s ease;
+      overflow: hidden;
     }
     .svc-tab-photo{
       width: 100%;
@@ -113,23 +113,17 @@
       display: block;
       aspect-ratio: 1 / 1.08;
       border-radius: inherit;
+      transition: transform .35s ease;
     }
     .svc-tab:hover .svc-tab-media{
-      transform: translateY(-4px);
-      box-shadow: 0 20px 34px rgba(20,20,40,.14);
+      transform: translateY(-6px);
+      box-shadow: 0 22px 38px rgba(20,20,40,.16);
+    }
+    .svc-tab:hover .svc-tab-photo{
+      transform: scale(1.05);
     }
     .svc-tab-media::after{
-      content: '';
-      position: absolute;
-      left: -1.5px;
-      bottom: -18px;
-      width: 46px;
-      height: 46px;
-      border: 1.5px solid var(--black);
-      border-top: none;
-      border-right: none;
-      border-radius: 0 16px 16px 16px;
-      background: inherit;
+      display: none;
     }
     .svc-tab-icon{
       width: 42%;
@@ -149,8 +143,7 @@
 
     /* active state, toggled by assets/js/services.js while scrolling */
     .svc-tab.active .svc-tab-media{
-      border-color: var(--purple-dark);
-      box-shadow: 0 14px 30px rgba(114,103,234,.28);
+      box-shadow: 0 14px 30px rgba(114,103,234,.30), 0 0 0 2px var(--purple-dark);
     }
     .svc-tab.active .svc-tab-label{ color: var(--purple-dark); }
 
@@ -194,33 +187,33 @@
       display: block;
       margin-bottom: 64px;
     }
-    .svc-banner-photo{
+    .svc-banner-img{
       width: 100%;
-      height: auto;
+      height: 420px;
       display: block;
-      border-radius: 28px 28px 28px 0;
-      /* Notch cut-out bottom-right corner to match the design's puzzle shape */
-      clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        100% calc(100% - 40px),
-        calc(100% - 40px) 100%,
-        0% 100%
-      );
-      box-shadow: 0 12px 40px rgba(0,0,0,.18);
       object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    }
+    .svc-banner-photo{
+    width: 100%;
+    height: 420px;
+    display: block;
+    border-radius: 28px 28px 28px 28px;
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0% 100%); */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .18);
+    object-fit: cover;
+    object-position: center;
     }
 
     @media (max-width: 720px){
+      .svc-banner-img{
+        height: 260px;
+        border-radius: 20px;
+      }
       .svc-banner-photo{
-        border-radius: 20px 20px 20px 0;
-        clip-path: polygon(
-          0% 0%,
-          100% 0%,
-          100% calc(100% - 26px),
-          calc(100% - 26px) 100%,
-          0% 100%
-        );
+        border-radius: 20px 20px 20px 20px;
       }
     }
     .svc-banner-content{
@@ -721,6 +714,8 @@
       .svc-info-grid{ grid-template-columns: 1fr; gap: 36px; }
       .svc-included-grid{ grid-template-columns: 1fr 1fr; gap: 20px; }
       .svc-included-grid::before{ display: none; }
+      .svc-banner-img,
+      .svc-banner-photo{ height: 340px; }
       .svc-banner-content{ gap: 32px; }
       .svc-faq .faq-inner{ grid-template-columns: 1fr; gap: 44px; }
       .svc-faq .faq-help-card-wrapper{ width: 100%; }
@@ -734,17 +729,16 @@
       .svc-hero__title br{ display: none; }
       .svc-hero__desc{ font-size: 14.5px; }
 
-      .svc-tabs{ padding: 30px 0 40px; gap: 28px 18px; }
+      .svc-tabs{ padding: 30px 24px 40px; gap: 28px 18px; }
       .svc-tab{ flex: 1 1 calc(50% - 18px); max-width: none; gap: 14px; }
-      .svc-tab-media{ border-radius: 22px 22px 22px 8px; }
-      .svc-tab-media::after{ bottom: -14px; width: 36px; height: 36px; }
+      .svc-tab-media{ border-radius: 18px; }
       .svc-tab-label{ font-size: 15px; }
 
       .svc-detail{ padding: 26px 0 6px; }
       .svc-detail + .svc-detail{ padding-top: 60px; }
       .svc-detail-head{ margin-bottom: 34px; }
 
-      .svc-banner{ min-height: 220px; margin-bottom: 44px; border-radius: 28px 28px 28px 12px; }
+      .svc-banner{ min-height: 220px; margin-bottom: 44px; border-radius: 28px 28px 28px 28px; }
       .svc-banner-content{ gap: 20px; padding: 30px 6%; }
       .svc-avatar{ width: 64px; height: 64px; }
       .svc-avatar svg{ width: 34px; height: 34px; }

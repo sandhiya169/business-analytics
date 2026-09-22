@@ -9,23 +9,31 @@ AOS.init({
 gsap.registerPlugin(ScrollTrigger);
 
 // Lock hero elements immediately — before preloader:done fires
-gsap.set(["#gsap-hero-quote", "#gsap-hero-card", "#gsap-hero-network"], { autoAlpha: 0 });
+gsap.set(["#gsap-hero-quote", "#gsap-hero-card", "#gsap-hero-network", "#gsap-hero-badge", "#gsap-hero-rating", "#gsap-hero-sub"], { autoAlpha: 0 });
+gsap.set("#gsap-hero-badge",  { y: -18 });
 gsap.set("#gsap-hero-quote",   { y: 48 });
+gsap.set("#gsap-hero-sub",     { y: 30 });
+gsap.set("#gsap-hero-rating",  { y: 24 });
 gsap.set("#gsap-hero-card",    { x: 60, y: -20 });
 gsap.set("#gsap-hero-network", { x: -60, y: 20 });
 gsap.set("#gsap-hero-avatars .c-hero__avatars-row img", { autoAlpha: 0, y: 24, scale: 0.7 });
+gsap.set(".c-hero__caption", { autoAlpha: 0 });
 
 // --- Hero: staggered entrance — fires after preloader hides ---
 function initHeroAnimations() {
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  tl.to("#gsap-hero-quote", { autoAlpha: 1, y: 0, duration: 1 });
+  tl.to("#gsap-hero-badge", { autoAlpha: 1, y: 0, duration: 0.6 });
+  tl.to("#gsap-hero-quote", { autoAlpha: 1, y: 0, duration: 1 }, "-=0.3");
+  tl.to("#gsap-hero-sub", { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.7");
+  tl.to("#gsap-hero-rating", { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.6");
   tl.to("#gsap-hero-card",    { autoAlpha: 1, x: 0, y: 0, duration: 0.85 }, "-=0.6");
   tl.to("#gsap-hero-network", { autoAlpha: 1, x: 0, y: 0, duration: 0.85 }, "-=0.75");
   tl.to("#gsap-hero-avatars .c-hero__avatars-row img", {
     autoAlpha: 1, y: 0, scale: 1,
     duration: 0.45, stagger: 0.08, ease: "back.out(1.7)",
   }, "-=0.5");
+  tl.to(".c-hero__caption", { autoAlpha: 1, duration: 0.5 }, "-=0.3");
 }
 
 if (document.body.classList.contains('is-loading')) {
