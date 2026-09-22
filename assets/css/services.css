@@ -1,0 +1,741 @@
+/* ============================================================
+       SERVICES PAGE — page-specific styles
+       (extends tokens/components defined in assets/css/styles.css)
+       ============================================================ */
+
+    .svc-icon{ display:block; }
+
+    /* ================================================================
+       PAGE HERO — Blog-style (matches blog.css .b-page-hero pattern)
+       ================================================================ */
+    .svc-hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f2effc 0%, #faf9ff 65%, #ffffff 100%);
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    /* Decorative blobs */
+    .svc-hero__blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .svc-hero__blob--a {
+      width: 500px;
+      height: 500px;
+      top: -230px;
+      left: -160px;
+      background: radial-gradient(circle, rgba(124,111,247,0.38), transparent 70%);
+    }
+    .svc-hero__blob--b {
+      width: 440px;
+      height: 440px;
+      top: -190px;
+      right: -180px;
+      background: radial-gradient(circle, rgba(255,150,220,0.28), transparent 70%);
+    }
+
+    .svc-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Hero heading */
+    .svc-hero__title {
+      font-family: 'Poppins', var(--font-display), system-ui, sans-serif;
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+      color: #111114;
+      margin: 18px 0 0;
+    }
+
+    /* Hero description */
+    .svc-hero__desc {
+      font-family: 'Poppins', var(--font-body), system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #4a4a4a;
+      max-width: 560px;
+      margin: 16px 0 0;
+    }
+
+    /* Hero CTA */
+    .svc-hero__cta {
+      margin-top: 32px;
+    }
+
+    /* ---------- Service tabs (category picker) ---------- */
+    .svc-tabs{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 60px 0 40px;
+    }
+    .svc-tab{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 268px;
+      max-width: 100%;
+    }
+    .svc-tab-media{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      border-radius: 30px 30px 30px 10px;
+      border: 1.5px solid var(--black);
+      background: linear-gradient(150deg, var(--tab-a, #eef0ff), var(--tab-b, #f8f7ff));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      box-shadow: 0 14px 28px rgba(20,20,40,.08);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .svc-tab:hover .svc-tab-media{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 34px rgba(20,20,40,.14);
+    }
+    .svc-tab-media::after{
+      content: '';
+      position: absolute;
+      left: -1.5px;
+      bottom: -18px;
+      width: 46px;
+      height: 46px;
+      border: 1.5px solid var(--black);
+      border-top: none;
+      border-right: none;
+      border-radius: 0 16px 16px 16px;
+      background: inherit;
+    }
+    .svc-tab-icon{
+      width: 42%;
+      height: 42%;
+      color: var(--purple-dark);
+    }
+    .svc-tab-label{
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1.5px;
+      text-align: center;
+      transition: color .15s ease;
+    }
+
+    /* active state, toggled by assets/js/services.js while scrolling */
+    .svc-tab.active .svc-tab-media{
+      border-color: var(--purple-dark);
+      box-shadow: 0 14px 30px rgba(114,103,234,.28);
+    }
+    .svc-tab.active .svc-tab-label{ color: var(--purple-dark); }
+
+    /* ---------- Service detail block ---------- */
+    .svc-detail{ padding: 30px 0 10px; }
+    .svc-detail + .svc-detail{ padding-top: 90px; border-top: 1px solid rgba(0,0,0,.08); }
+
+    .svc-detail-head{
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 44px;
+    }
+    .svc-detail-title{
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(30px, 4.2vw, 46px);
+      margin: 0 0 14px;
+    }
+    .svc-detail-sub{
+      font-size: 17px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .svc-banner{
+      position: relative;
+      margin-bottom: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .svc-banner.warm{
+      background: none;
+    }
+    .svc-banner.tech{
+      background: none;
+    }
+
+    /* Image banner variant — replaces the tech SVG design */
+    .svc-banner--img{
+      display: block;
+      margin-bottom: 64px;
+    }
+    .svc-banner-photo{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 28px 28px 28px 0;
+      /* Notch cut-out bottom-right corner to match the design's puzzle shape */
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 40px),
+        calc(100% - 40px) 100%,
+        0% 100%
+      );
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      object-fit: cover;
+    }
+
+    @media (max-width: 720px){
+      .svc-banner-photo{
+        border-radius: 20px 20px 20px 0;
+        clip-path: polygon(
+          0% 0%,
+          100% 0%,
+          100% calc(100% - 26px),
+          calc(100% - 26px) 100%,
+          0% 100%
+        );
+      }
+    }
+    .svc-banner-content{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0;
+    }
+    .svc-banner-content img{
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 100%;
+    }
+    .svc-avatar{
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1.5px solid rgba(0,0,0,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+      flex-shrink: 0;
+    }
+    .svc-avatar svg{ width: 46px; height: 46px; }
+    .svc-banner-link{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.55);
+      color: var(--purple-dark);
+      flex-shrink: 0;
+    }
+    .svc-banner-link svg{ width: 20px; height: 20px; }
+
+    .tech-rings{
+      position: relative;
+      width: 210px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tech-rings .ring{
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(120,220,255,.45);
+    }
+    .tech-rings .ring.r1{ inset: 0; }
+    .tech-rings .ring.r2{ inset: 24px; border-style: solid; border-color: rgba(120,220,255,.7); }
+    .tech-rings .ring.r3{ inset: 52px; border-style: dashed; }
+    .tech-word{
+      position: relative;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 34px;
+      letter-spacing: 2px;
+      color: #d9fbff;
+      text-shadow: 0 0 18px rgba(120,220,255,.9), 0 0 40px rgba(120,220,255,.5);
+    }
+    .tech-node{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border: 1.5px solid rgba(120,220,255,.55);
+      border-radius: 14px;
+      color: rgba(190,240,255,.9);
+      background: rgba(20,32,54,.4);
+    }
+    .tech-node svg{ width: 26px; height: 26px; }
+    .tech-node.n1{ top: 6%; left: 20%; }
+    .tech-node.n2{ top: 6%; right: 20%; }
+    .tech-node.n3{ bottom: 8%; left: 24%; }
+    .tech-node.n4{ bottom: 8%; right: 22%; }
+    @media (max-width: 720px){
+      .tech-node{ display: none; }
+    }
+
+    /* ---------- Info grid (copy + capabilities card) ---------- */
+    .svc-info-grid{
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 70px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+    .svc-info-title{
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(24px, 2.8vw, 32px);
+      line-height: 1.28;
+      margin: 18px 0 22px;
+    }
+    .svc-info-copy p{
+      font-size: 15px;
+      line-height: 1.7;
+      color: #2b2b2b;
+      margin: 0 0 18px;
+      text-align: justify;
+    }
+
+    .svc-capabilities-card{
+      border: 1.5px solid var(--black);
+      border-radius: var(--radius-lg);
+      padding: 36px 38px;
+      margin-top: 20px;
+    }
+    .svc-capabilities-card h4{
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-align: center;
+      margin: 0 0 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+    .svc-capabilities-card ul{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .svc-capabilities-card li{
+      font-size: 15px;
+      font-weight: 500;
+      padding-left: 20px;
+      position: relative;
+      color: var(--ink);
+    }
+    .svc-capabilities-card li::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--black);
+    }
+
+    /* ---------- Deliverables / What's included ---------- */
+    .svc-deliverables-wrapper{
+      position: relative;
+      margin: 0 0 70px;
+      padding: 56px 40px 64px;
+      background:
+        linear-gradient(135deg, rgba(137,128,241,.07) 0%, rgba(130,210,255,.06) 50%, rgba(255,182,230,.07) 100%);
+      border-radius: 32px;
+      border: 1px solid rgba(137,128,241,.14);
+      overflow: hidden;
+    }
+    .svc-deliverables-wrapper::before{
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(137,128,241,.12), transparent 70%);
+      pointer-events: none;
+    }
+    .svc-deliverables-wrapper::after{
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(130,210,255,.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .svc-deliverables{ margin-bottom: 20px; }
+    .svc-deliverables .badge{ margin-bottom: 16px; }
+    .svc-deliverables .section-title{
+      font-size: clamp(28px, 3.6vw, 40px);
+      margin-bottom: 48px;
+    }
+
+    /* Step connector line behind the cards */
+    .svc-included-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .svc-included-grid::before{
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 2px);
+      right: calc(12.5% + 2px);
+      height: 2px;
+      background: linear-gradient(90deg,
+        rgba(137,128,241,.5),
+        rgba(130,210,255,.5) 50%,
+        rgba(255,182,230,.5));
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Per-card accent colours */
+    .svc-included-col:nth-child(1){ --card-accent: #7267ea; --card-bg: rgba(114,103,234,.08); }
+    .svc-included-col:nth-child(2){ --card-accent: #3dbbf5; --card-bg: rgba(61,187,245,.08); }
+    .svc-included-col:nth-child(3){ --card-accent: #b67af6; --card-bg: rgba(182,122,246,.08); }
+    .svc-included-col:nth-child(4){ --card-accent: #f97ba3; --card-bg: rgba(249,123,163,.08); }
+
+    .svc-included-col{
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border: 1.5px solid rgba(0,0,0,.08);
+      border-radius: 20px;
+      padding: 28px 26px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 18px rgba(20,20,40,.06);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .svc-included-col:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(20,20,40,.12);
+      border-color: var(--card-accent);
+    }
+
+    /* Numbered step badge */
+    .svc-included-col::before{
+      content: attr(data-step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--card-accent);
+      color: var(--card-accent);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      margin: 0 auto 20px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .svc-included-col h5{
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--card-accent);
+      margin: 0 0 10px;
+      text-align: center;
+      letter-spacing: .2px;
+    }
+    .svc-included-col > p{
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #6b6b7e;
+      margin: 0 0 20px;
+      text-align: center;
+      flex-grow: 0;
+    }
+
+    /* Divider between description and checklist */
+    .svc-included-col > p + .svc-check-list{
+      border-top: 1px solid rgba(0,0,0,.07);
+      padding-top: 18px;
+    }
+
+    .svc-check-list{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .svc-check-list li{
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #2c2c3a;
+      line-height: 1.45;
+    }
+    .svc-check-list li svg{
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--card-accent);
+    }
+
+    /* ---------- FAQ — Services page (pixel-matched to reference design) ---------- */
+
+    /* Wrapper padding */
+    .svc-faq{ padding: 70px 0 100px; }
+    .svc-detail:last-of-type .svc-faq{ padding-bottom: 110px; }
+
+    /* Two-column grid */
+    .svc-faq .faq-inner{
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ---- LEFT COLUMN ---- */
+    .svc-faq .faq-left{ display: flex; flex-direction: column; align-items: flex-start; }
+
+    /* "Got Questions?" badge */
+    .svc-faq .faq-left .badge{
+      margin-bottom: 16px;
+    }
+
+    /* Big bold heading */
+    .svc-faq .faq-left .section-title{
+      font-size: clamp(30px, 3.6vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 24px;
+      text-align: left;
+    }
+
+    /* Help card wrapper — card + button stacked, button right-aligned */
+    .svc-faq .faq-help-card-wrapper{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    /* Help card — fills full left column width */
+    .svc-faq .faq-help-card{
+      width: 100%;
+      background: linear-gradient(160deg, #e2e2ea 0%, #ebebf0 55%, #f8f8fb 100%);
+      border-radius: 18px;
+      padding: 22px 22px 24px;
+      border: none;
+    }
+
+    /* Top row: ? icon + heading side by side */
+    .svc-faq .faq-help-card-top{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    /* ? icon — purple circle */
+    .svc-faq .qmark{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--purple, #7267ea);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .svc-faq .faq-help-card h3{
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--purple, #7267ea);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .svc-faq .faq-help-card p{
+      font-size: 13px;
+      line-height: 1.6;
+      color: #2b2b2b;
+      margin: 0;
+    }
+
+    /* Contact us button — below card, right-aligned */
+    .svc-faq .faq-help-card-wrapper .btn-contact{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(110deg, #7267ea 0%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 18px;
+      box-shadow: 0 6px 18px rgba(114,103,234,.35);
+      transition: opacity .18s ease, box-shadow .18s ease;
+    }
+    .svc-faq .faq-help-card-wrapper .btn-contact:hover{
+      opacity: .9;
+      box-shadow: 0 10px 24px rgba(114,103,234,.45);
+    }
+
+    /* ---- RIGHT COLUMN — Accordion ---- */
+    .svc-faq .faq-right{
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .svc-faq .faq-item{
+      border: 2px solid #111;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow .2s ease;
+    }
+    .svc-faq .faq-item.open{
+      box-shadow: 0 6px 20px rgba(20,20,40,.1);
+    }
+
+    /* Question row */
+    .svc-faq .faq-question{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #fff;
+      border: none;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: #111;
+      padding: 20px 22px;
+      cursor: pointer;
+      line-height: 1.35;
+    }
+
+    /* Filled triangle chevron */
+    .svc-faq .faq-chevron{
+      flex-shrink: 0;
+      font-size: 11px;
+      color: #111;
+      transition: transform .22s ease;
+      line-height: 1;
+    }
+    .svc-faq .faq-item.open .faq-chevron{ transform: rotate(180deg); }
+
+    /* Answer panel */
+    .svc-faq .faq-answer{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease;
+    }
+    .svc-faq .faq-item.open .faq-answer{ max-height: 220px; }
+
+    /* Answer text — purple gradient */
+    .svc-faq .faq-answer p{
+      margin: 0;
+      padding: 2px 22px 22px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      background: linear-gradient(100deg, #7267ea 0%, #3dbbf5 60%, #b67af6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    @media (max-width: 1080px){
+      .svc-info-grid{ grid-template-columns: 1fr; gap: 36px; }
+      .svc-included-grid{ grid-template-columns: 1fr 1fr; gap: 20px; }
+      .svc-included-grid::before{ display: none; }
+      .svc-banner-content{ gap: 32px; }
+      .svc-faq .faq-inner{ grid-template-columns: 1fr; gap: 44px; }
+      .svc-faq .faq-help-card-wrapper{ width: 100%; }
+    }
+
+    @media (max-width: 720px){
+      .svc-hero{ padding: 50px 0 48px; }
+      .svc-hero__blob--a{ width: 300px; height: 300px; top: -140px; left: -100px; }
+      .svc-hero__blob--b{ width: 260px; height: 260px; top: -120px; right: -100px; }
+      .svc-hero__title{ font-size: clamp(24px, 7vw, 32px); }
+      .svc-hero__desc{ font-size: 14.5px; }
+
+      .svc-tabs{ padding: 30px 22px 50px; gap: 26px; }
+      .svc-tab{ width: 46%; }
+
+      .svc-detail{ padding: 26px 0 6px; }
+      .svc-detail + .svc-detail{ padding-top: 60px; }
+      .svc-detail-head{ margin-bottom: 34px; }
+
+      .svc-banner{ min-height: 220px; margin-bottom: 44px; border-radius: 28px 28px 28px 12px; }
+      .svc-banner-content{ gap: 20px; padding: 30px 6%; }
+      .svc-avatar{ width: 64px; height: 64px; }
+      .svc-avatar svg{ width: 34px; height: 34px; }
+      .tech-rings{ width: 140px; height: 140px; }
+      .tech-word{ font-size: 24px; }
+
+      .svc-capabilities-card{ padding: 28px 26px; }
+
+      .svc-included-grid{ grid-template-columns: 1fr; gap: 18px; }
+      .svc-deliverables-wrapper{ margin: 0 0 50px; padding: 40px 24px 48px; border-radius: 20px; }
+
+      .svc-faq{ padding: 40px 0 70px; }
+      .svc-faq .faq-left .section-title{ font-size: 30px; }
+    }
+
+    @media (max-width: 380px){
+      .svc-tab{ width: 100%; }
+      .svc-tab-media{ aspect-ratio: 1 / 0.85; }
+      .svc-info-copy p{ font-size: 14px; }
+    }

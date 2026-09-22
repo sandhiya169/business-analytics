@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Services</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+
+<body class="is-loading">
+
+  <!-- PAGE PRELOADER -->
+  <div id="page-preloader">
+    <div class="preloader-inner">
+      <img src="assets/images/stackly-logo.webp" alt="Stackly" class="preloader-logo">
+      <div class="preloader-spinner"></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/images/stackly-logo.webp">
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-auth">
+          <a href="login.html" class="btn btn-outline-light">Login</a>
+          <a href="signup.html" class="btn btn-primary">Signup</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline-light">Login</a>
+        <a href="signup.html" class="btn btn-primary">Signup</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SERVICES HERO -->
+    <section class="svc-hero" id="gsap-svc-hero">
+      <div class="svc-hero__blob svc-hero__blob--a" aria-hidden="true"></div>
+      <div class="svc-hero__blob svc-hero__blob--b" aria-hidden="true"></div>
+
+      <div class="container svc-hero-inner">
+        <span class="badge" id="gsap-svc-badge">What We Offer</span>
+        <h1 class="svc-hero__title" id="gsap-svc-title">Next-Gen Tools for Growing<br>Businesses</h1>
+        <p class="svc-hero__desc" id="gsap-svc-desc">Automate smarter, scale faster — discover our AI-powered CRM,
+          marketing, analytics, and workflow solutions built for modern teams.</p>
+        <div class="svc-hero__cta" id="gsap-svc-cta">
+          <a href="404.html" class="btn btn-primary"
+            style="padding: 12px 32px; font-size: 16px; border-radius: 999px;">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="container svc-tabs" style="gap: 20px; align-items: flex-end; justify-content: space-between;">
+        <a class="svc-tab" href="404.html" style="text-align: center; color: #000;">
+          <img src="assets/images/services-image-1.webp" alt="CRM Automation"
+            style="width: 100%; max-width: 250px; margin-bottom: 15px;">
+          <span class="svc-tab-label" style="text-decoration: underline; font-weight: bold; font-size: 16px;">CRM
+            Automation</span>
+        </a>
+
+        <a class="svc-tab" href="404.html" style="text-align: center; color: #000;">
+          <img src="assets/images/services-image-2.webp" alt="Marketing Automation"
+            style="width: 100%; max-width: 250px; margin-bottom: 15px;">
+          <span class="svc-tab-label" style="text-decoration: underline; font-weight: bold; font-size: 16px;">Marketing
+            Automation</span>
+        </a>
+
+        <a class="svc-tab" href="404.html" style="text-align: center; color: #000;">
+          <img src="assets/images/blog-image-6.webp" alt="AI Data Analytics"
+            style="width: 100%; max-width: 250px; margin-bottom: 15px;">
+          <span class="svc-tab-label" style="text-decoration: underline; font-weight: bold; font-size: 16px;">AI Data
+            Analytics</span>
+        </a>
+
+        <a class="svc-tab" href="404.html" style="text-align: center; color: #000;">
+          <img src="assets/images/services-image-3.webp" alt="Workflow Management"
+            style="width: 100%; max-width: 250px; margin-bottom: 15px;">
+          <span class="svc-tab-label" style="text-decoration: underline; font-weight: bold; font-size: 16px;">Workflow
+            Management</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= CRM AUTOMATION ================= -->
+    <section class="svc-detail" id="crm-automation">
+      <div class="container">
+
+        <div class="svc-detail-head" data-aos="fade-up" data-aos-duration="700">
+          <h2 class="svc-detail-title">CRM Automation</h2>
+          <p class="svc-detail-sub">User-Focused SaaS design with Scalable Technology</p>
+        </div>
+
+        <div class="svc-banner warm" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+          <img src="assets/images/service.webp" alt="CRM Automation" class="svc-banner-img">
+        </div>
+
+        <div class="svc-info-grid">
+          <div class="svc-info-copy" data-aos="fade-right" data-aos-duration="800" data-aos-delay="150">
+            <span class="badge">Smart Marketing Solutions</span>
+            <h3 class="svc-info-title accent">AI Marketing automation for smarter Business Growth</h3>
+            <p>Our AI Marketing Automation solution simplifies complex marketing operations by combining artificial
+              intelligence, workflow automation, analytics, and customer engagement tools into one centralized cloud
+              platform.</p>
+            <p>Businesses can automate repetitive marketing tasks, improve customer communication, personalize
+              campaigns, and monitor performance in real time. Automate digital marketing campaigns using intelligent
+              workflows that manage scheduling, targeting, audience engagement.</p>
+          </div>
+          <div class="svc-capabilities-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="250">
+            <h4>Core Capabilities</h4>
+            <ul>
+              <li>AI-powered marketing workflows</li>
+              <li>Automated customer engagement</li>
+              <li>Smart campaign optimization</li>
+              <li>Real-time marketing analytics</li>
+              <li>Multi-channel automation</li>
+              <li>Cloud-based workflow management</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-deliverables-wrapper">
+          <div class="svc-deliverables" data-aos="fade-up" data-aos-duration="600">
+            <span class="badge">Deliverables</span>
+            <h2 class="section-title">What's included</h2>
+          </div>
+
+          <div class="svc-included-grid">
+            <div class="svc-included-col" data-step="1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="600">
+              <h5>Strategy</h5>
+              <p>Architectural alignment before implementation.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Multi-channel automation</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Risk &amp; dependency review</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Success criteria definition</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+              <h5>Build</h5>
+              <p>Controlled deployment of automation infrastructure.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Automation flows</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>System integrations</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>QA &amp; testing checklist</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+              <h5>Handoff</h5>
+              <p>Operational enablement and system ownership transfer.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Technical documentation</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Team training</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Operational runbook</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+              <h5>Support</h5>
+              <p>Ongoing performance governance and system optimization.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>System monitoring</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Iteration cycles</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Performance adjustments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="svc-faq faq" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+          <div class="faq-inner">
+            <div class="faq-left">
+              <span class="badge">Got Questions?</span>
+              <h2 class="section-title">Frequently Asked<br>Questions</h2>
+
+              <div class="faq-help-card-wrapper">
+                <div class="faq-help-card">
+                  <div class="faq-help-card-top">
+                    <span class="qmark">?</span>
+                    <h3>Still have questions?</h3>
+                  </div>
+                  <p>We're happy to help. Reach out to discuss your needs, challenges, and how AI can fit your business.
+                  </p>
+                </div>
+                <a href="contact.html" class="btn-contact">Contact us &gt;</a>
+              </div>
+            </div>
+
+            <div class="faq-right">
+              <div class="faq-item open">
+                <button class="faq-question">01. How Does AI automation improve business productivity?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>AI automation reduces manual, repetitive work so your team can focus on higher-value tasks, cutting
+                    response times and operational costs while improving accuracy across workflows.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">02. Can I build workflows without coding knowledge?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Yes. Our drag-and-drop builder lets anyone assemble multi-step automations visually, with no coding
+                    required.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">03. Which Applications can be integrated with platform?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Stackly connects with hundreds of popular apps across CRM, email, payments, and analytics — plus
+                    custom integrations via API.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">04. How secure Is your Automation Cloud Infrastructure?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>We use enterprise-grade encryption, isolated cloud environments, and continuous monitoring to keep
+                    every workflow protected.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">05. Is platform suitable for Growing Startup Businesses?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Absolutely — our plans scale with you, from a first automation to enterprise-wide workflow
+                    orchestration.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= MARKETING AUTOMATION ================= -->
+    <section class="svc-detail" id="marketing-automation">
+      <div class="container">
+
+        <div class="svc-detail-head" data-aos="fade-up" data-aos-duration="700">
+          <h2 class="svc-detail-title accent">Marketing Automation</h2>
+          <p class="svc-detail-sub">Modern SaaS solutions for Growing Businesses</p>
+        </div>
+
+        <div class="svc-banner svc-banner--img" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+          <img src="assets/images/services-image.webp" alt="Marketing Automation - CRM" class="svc-banner-photo">
+        </div>
+
+        <div class="svc-info-grid">
+          <div class="svc-info-copy" data-aos="fade-right" data-aos-duration="800" data-aos-delay="150">
+            <span class="badge">Smart Marketing Solutions</span>
+            <h3 class="svc-info-title accent">AI Marketing automation for smarter Business Growth</h3>
+            <p>Our AI Marketing Automation solution simplifies complex marketing operations by combining artificial
+              intelligence, workflow automation, analytics, and customer engagement tools into one centralized cloud
+              platform.</p>
+            <p>Businesses can automate repetitive marketing tasks, improve customer communication, personalize
+              campaigns, and monitor performance in real time. Automate digital marketing campaigns using intelligent
+              workflows that manage scheduling, targeting, audience engagement.</p>
+          </div>
+          <div class="svc-capabilities-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="250">
+            <h4>Core Capabilities</h4>
+            <ul>
+              <li>AI-powered marketing workflows</li>
+              <li>Automated customer engagement</li>
+              <li>Smart campaign optimization</li>
+              <li>Real-time marketing analytics</li>
+              <li>Multi-channel automation</li>
+              <li>Cloud-based workflow management</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-deliverables-wrapper">
+          <div class="svc-deliverables" data-aos="fade-up" data-aos-duration="600">
+            <span class="badge">Deliverables</span>
+            <h2 class="section-title">What's included</h2>
+          </div>
+
+          <div class="svc-included-grid">
+            <div class="svc-included-col" data-step="1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="600">
+              <h5>Strategy</h5>
+              <p>Architectural alignment before implementation.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Multi-channel automation</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Risk &amp; dependency review</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Success criteria definition</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+              <h5>Build</h5>
+              <p>Controlled deployment of automation infrastructure.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Automation flows</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>System integrations</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>QA &amp; testing checklist</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+              <h5>Handoff</h5>
+              <p>Operational enablement and system ownership transfer.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Technical documentation</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Team training</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Operational runbook</li>
+              </ul>
+            </div>
+            <div class="svc-included-col" data-step="4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+              <h5>Support</h5>
+              <p>Ongoing performance governance and system optimization.</p>
+              <ul class="svc-check-list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>System monitoring</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Iteration cycles</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i>Performance adjustments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="svc-faq faq" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+          <div class="faq-inner">
+            <div class="faq-left">
+              <span class="badge">Got Questions?</span>
+              <h2 class="section-title">Frequently Asked<br>Questions</h2>
+
+              <div class="faq-help-card-wrapper">
+                <div class="faq-help-card">
+                  <div class="faq-help-card-top">
+                    <span class="qmark">?</span>
+                    <h3>Still have questions?</h3>
+                  </div>
+                  <p>We're happy to help. Reach out to discuss your needs, challenges, and how AI can fit your business.
+                  </p>
+                </div>
+                <a href="contact.html" class="btn-contact">Contact us &gt;</a>
+              </div>
+            </div>
+
+            <div class="faq-right">
+              <div class="faq-item">
+                <button class="faq-question">01. How Does AI automation improve business productivity?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>AI automation reduces manual, repetitive work so your team can focus on higher-value tasks, cutting
+                    response times and operational costs while improving accuracy across workflows.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">02. Can I build workflows without coding knowledge?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Yes. Our drag-and-drop builder lets anyone assemble multi-step automations visually, with no coding
+                    required.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">03. Which Applications can be integrated with platform?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Stackly connects with hundreds of popular apps across CRM, email, payments, and analytics — plus
+                    custom integrations via API.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">04. How secure Is your Automation Cloud Infrastructure?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>We use enterprise-grade encryption, isolated cloud environments, and continuous monitoring to keep
+                    every workflow protected.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">05. Is platform suitable for Growing Startup Businesses?<span
+                    class="faq-chevron">&#9660;</span></button>
+                <div class="faq-answer">
+                  <p>Absolutely — our plans scale with you, from a first automation to enterprise-wide workflow
+                    orchestration.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+ <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-brand-logo">
+          <img src="assets/images/stackly-logo.webp" alt="Stackly">
+        </a>
+        <h3>Our Company</h3>
+        <p class="footer-news">Don't miss the latest news</p>
+        <form class="newsletter" id="newsletterForm" novalidate>
+          <input type="email" placeholder="Your Email Address" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter-error" id="newsletterError" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Our Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Utility Pages</h4>
+        <ul>
+          <li><a href="404.html">Terms & Conditions</a></li>
+          <li><a href="404.html">License</a></li>
+          <li><a href="404.html">Changelog</a></li>
+          <li><a href="404.html">Privacy Policy</a></li>
+          <li><a href="404.html">Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Contact</h4>
+        <ul class="no-bullets">
+          <li><a href="404.html">+91 9876543210</a></li>
+          <li><a href="404.html">info@thestackly.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&#64; 2026 Stackly All Rights Reserved.</p>
+      <div class="social-icons" id="gsap-social-icons">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <p class="powered">Powered by stackly</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/services.js"></script>
+  <script>
+    (function () {
+      var loader = document.getElementById('page-preloader');
+      var start = Date.now();
+      var MIN = 1000, MAX = 2000;
+      function hide() {
+        loader.classList.add('preloader-hidden');
+        document.body.classList.remove('is-loading');
+        document.dispatchEvent(new CustomEvent('preloader:done'));
+      }
+      function tryHide() {
+        var elapsed = Date.now() - start;
+        if (elapsed < MIN) {
+          setTimeout(hide, MIN - elapsed);
+        } else {
+          hide();
+        }
+      }
+      var maxTimer = setTimeout(hide, MAX);
+      window.addEventListener('load', function () {
+        clearTimeout(maxTimer);
+        tryHide();
+      });
+    })();
+  </script>
+</body>
+
+</html>

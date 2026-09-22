@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics Dashboard — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+<!-- Shared icon sprite -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+  <symbol id="i-traffic" viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9.5" r="2.6"/><path d="M15.8 14.2c2.6.4 4.7 2.3 4.7 5.3"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.8-1L14.8 3H9.2l-.4 2.9a7.7 7.7 0 0 0-1.8 1l-2.4-1-2 3.4L4.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7.7 7.7 0 0 0 1.8 1l.4 3h5.6l.4-3a7.7 7.7 0 0 0 1.8-1l2.4 1 2-3.4z"/></symbol>
+  <symbol id="i-report" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14.3-4.9M20 12a8 8 0 0 1-14.3 4.9"/><path d="M18 3v5h-5M6 21v-5h5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<div class="dash">
+
+  <div class="dash-scrim" id="dashScrim"></div>
+
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="analyst-dashboard.html" class="dash-logo"><img src="assets/images/stackly-logo.webp"></a>
+
+    <nav class="dash-nav" aria-label="Dashboard sections">
+      <button type="button" class="dash-nav-item active" data-page="overview" data-label="Overview" data-sub="Site-wide traffic snapshot" aria-current="page">
+        <svg><use href="#i-grid"/></svg> Overview
+      </button>
+      <button type="button" class="dash-nav-item" data-page="traffic" data-label="Traffic" data-sub="Sources, devices & real time">
+        <svg><use href="#i-traffic"/></svg> Traffic
+      </button>
+      <button type="button" class="dash-nav-item" data-page="audience" data-label="Audience" data-sub="Who's visiting, and from where">
+        <svg><use href="#i-users"/></svg> Audience
+      </button>
+      <button type="button" class="dash-nav-item" data-page="reports" data-label="Reports" data-sub="Custom & scheduled exports">
+        <svg><use href="#i-report"/></svg> Reports
+      </button>
+    </nav>
+
+    <div class="dash-sidebar-foot">
+      <a href="login.html" class="dash-side-btn logout"><svg><use href="#i-logout"/></svg>Logout</a>
+      <a href="index.html" class="dash-side-btn"><svg><use href="#i-home"/></svg>Back to Home</a>
+    </div>
+  </aside>
+
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button type="button" class="dash-menu-toggle" id="dashMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="dashSidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div>
+          <p class="dash-topbar-title" id="dashTopbarTitle">Overview</p>
+          <p class="dash-topbar-sub" id="dashTopbarSub">Site-wide traffic snapshot</p>
+        </div>
+      </div>
+      <div class="dash-topbar-actions">
+        <a href="404.html" class="dash-bell" aria-label="Notifications"><svg><use href="#i-bell"/></svg></a>
+        <div class="dash-user">
+          <span class="dash-user-avatar">U</span>
+          <span class="dash-user-meta">
+            <span class="dash-user-name">User</span>
+            <span class="dash-user-role">Analyst</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-pages">
+
+      <!-- ================= OVERVIEW ================= -->
+      <section class="dash-page active" data-page="overview">
+        <div class="dash-page-head">
+          <div>
+            <h1 class="dash-page-title">Overview</h1>
+            <p class="dash-page-desc">How people are finding and using the site this month.</p>
+          </div>
+          <a href="404.html" class="btn btn-outline-dark btn-sm">Change date range</a>
+        </div>
+
+        <div class="dash-section">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <p class="kpi-label">Sessions</p>
+              <p class="kpi-value">128.4K</p>
+              <span class="kpi-delta up"><i class="fa-solid fa-arrow-up-right-dots"></i> 9.2% vs last month</span>
+            </div>
+            <div class="kpi-card">
+              <p class="kpi-label">Page Views</p>
+              <p class="kpi-value">402.1K</p>
+              <span class="kpi-delta up"><i class="fa-solid fa-arrow-up-right-dots"></i> 6.1% vs last month</span>
+            </div>
+            <div class="kpi-card">
+              <p class="kpi-label">Bounce Rate</p>
+              <p class="kpi-value">38.4%</p>
+              <span class="kpi-delta up"><i class="fa-solid fa-arrow-down"></i> 2.3 pts</span>
+            </div>
+            <div class="kpi-card">
+              <p class="kpi-label">Avg. Session</p>
+              <p class="kpi-value">4m 12s</p>
+              <span class="kpi-delta up"><i class="fa-solid fa-arrow-up-right-dots"></i> 18s vs last month</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section grid-2">
+          <div class="dash-card">
+            <div class="dash-section-head">
+              <h2 class="dash-section-title">Sessions this week</h2>
+              <span class="dash-section-note">Mon – Sun</span>
+            </div>
+            <div class="bar-chart">
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:52%"></div></div><span class="bar-label">Mon</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:61%"></div></div><span class="bar-label">Tue</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:58%"></div></div><span class="bar-label">Wed</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:70%"></div></div><span class="bar-label">Thu</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:88%"></div></div><span class="bar-label">Fri</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:46%"></div></div><span class="bar-label">Sat</span></div>
+              <div class="bar"><div class="bar-fill-zone"><div class="bar-fill" style="height:38%"></div></div><span class="bar-label">Sun</span></div>
+            </div>
+            <div class="chart-legend"><span><i></i>Sessions</span></div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-section-head">
+              <h2 class="dash-section-title">Top channels</h2>
+            </div>
+            <div class="hbar-list">
+              <div>
+                <div class="hbar-row-top"><span>Organic Search</span><span>42%</span></div>
+                <div class="hbar-track"><div class="hbar-fill" style="width:42%"></div></div>
+              </div>
+              <div>
+                <div class="hbar-row-top"><span>Direct</span><span>24%</span></div>
+                <div class="hbar-track"><div class="hbar-fill" style="width:24%"></div></div>
+              </div>
+              <div>
+                <div class="hbar-row-top"><span>Referral</span><span>16%</span></div>
+                <div class="hbar-track"><div class="hbar-fill" style="width:16%"></div></div>
+              </div>
+              <div>
+                <div class="hbar-row-top"><span>Paid Social</span><span>12%</span></div>
+                <div class="hbar-track"><div class="hbar-fill" style="width:12%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head">
+              <h2 class="dash-section-title">Top pages</h2>
+              <span class="dash-section-note">By page views</span>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Page</th><th>Views</th><th>Avg. time</th><th>Bounce rate</th></tr></thead>
+                <tbody>
+                  <tr><td>/</td><td class="muted">86,200</td><td class="muted">2m 40s</td><td class="muted">31.2%</td></tr>
+                  <tr><td>/services</td><td class="muted">54,900</td><td class="muted">3m 05s</td><td class="muted">35.8%</td></tr>
+                  <tr><td>/blog</td><td class="muted">41,300</td><td class="muted">4m 52s</td><td class="muted">28.6%</td></tr>
+                  <tr><td>/about</td><td class="muted">22,750</td><td class="muted">1m 58s</td><td class="muted">44.1%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-actions"><a href="404.html" class="btn btn-outline-dark btn-sm">View all pages</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TRAFFIC ================= -->
+      <section class="dash-page" data-page="traffic">
+        <div class="dash-page-head">
+          <div>
+            <h1 class="dash-page-title">Traffic</h1>
+            <p class="dash-page-desc">Where sessions come from, and what people use to browse.</p>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Traffic sources</h2></div>
+            <div class="hbar-list">
+              <div><div class="hbar-row-top"><span>Organic Search</span><span>42%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:42%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Direct</span><span>24%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:24%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Referral</span><span>16%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:16%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Paid Social</span><span>12%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:12%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Email</span><span>6%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:6%"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section grid-2">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Devices</h2></div>
+            <div class="donut-wrap">
+              <div class="donut" style="background:conic-gradient(var(--purple) 0 58%, var(--purple-deep) 58% 92%, var(--gray-card-2) 92% 100%)">
+                <div class="donut-hole"><strong>58%</strong><span>Desktop</span></div>
+              </div>
+              <ul class="donut-legend">
+                <li><span class="swatch"><i class="dot" style="background:var(--purple)"></i>Desktop</span><span class="val">58%</span></li>
+                <li><span class="swatch"><i class="dot" style="background:var(--purple-deep)"></i>Mobile</span><span class="val">34%</span></li>
+                <li><span class="swatch"><i class="dot" style="background:var(--gray-card-2)"></i>Tablet</span><span class="val">8%</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Top browsers</h2></div>
+            <div class="hbar-list">
+              <div><div class="hbar-row-top"><span>Chrome</span><span>64%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:64%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Safari</span><span>21%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:21%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Edge</span><span>9%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:9%"></div></div></div>
+              <div><div class="hbar-row-top"><span>Firefox</span><span>6%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:6%"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head">
+              <h2 class="dash-section-title">Real-time visitors</h2>
+              <span class="dash-section-note">42 online now</span>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Page</th><th>Visitors</th><th>Avg. time on page</th><th>Location</th></tr></thead>
+                <tbody>
+                  <tr><td>/services</td><td class="muted">14</td><td class="muted">1m 12s</td><td class="muted">India</td></tr>
+                  <tr><td>/</td><td class="muted">11</td><td class="muted">0m 48s</td><td class="muted">United States</td></tr>
+                  <tr><td>/blog/automation-2026</td><td class="muted">9</td><td class="muted">2m 30s</td><td class="muted">Germany</td></tr>
+                  <tr><td>/contact</td><td class="muted">8</td><td class="muted">0m 55s</td><td class="muted">Brazil</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-actions"><a href="404.html" class="btn btn-outline-dark btn-sm"><svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2"><use href="#i-refresh"/></svg>Refresh</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AUDIENCE ================= -->
+      <section class="dash-page" data-page="audience">
+        <div class="dash-page-head">
+          <div>
+            <h1 class="dash-page-title">Audience</h1>
+            <p class="dash-page-desc">Who's visiting Stackly, where they're from, and how often they return.</p>
+          </div>
+          <a href="404.html" class="btn btn-outline-dark btn-sm">Export audience data</a>
+        </div>
+
+        <div class="dash-section grid-2">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Age breakdown</h2></div>
+            <div class="hbar-list">
+              <div><div class="hbar-row-top"><span>18–24</span><span>14%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:14%"></div></div></div>
+              <div><div class="hbar-row-top"><span>25–34</span><span>38%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:38%"></div></div></div>
+              <div><div class="hbar-row-top"><span>35–44</span><span>27%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:27%"></div></div></div>
+              <div><div class="hbar-row-top"><span>45–54</span><span>14%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:14%"></div></div></div>
+              <div><div class="hbar-row-top"><span>55+</span><span>7%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:7%"></div></div></div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Gender split</h2></div>
+            <div class="donut-wrap">
+              <div class="donut" style="background:conic-gradient(var(--purple) 0 54%, var(--purple-deep) 54% 91%, var(--gray-card-2) 91% 100%)">
+                <div class="donut-hole"><strong>54%</strong><span>Women</span></div>
+              </div>
+              <ul class="donut-legend">
+                <li><span class="swatch"><i class="dot" style="background:var(--purple)"></i>Women</span><span class="val">54%</span></li>
+                <li><span class="swatch"><i class="dot" style="background:var(--purple-deep)"></i>Men</span><span class="val">37%</span></li>
+                <li><span class="swatch"><i class="dot" style="background:var(--gray-card-2)"></i>Other / unspecified</span><span class="val">9%</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head">
+              <h2 class="dash-section-title">Top countries</h2>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Country</th><th>Sessions</th><th>% of total</th><th>Trend</th></tr></thead>
+                <tbody>
+                  <tr><td>India</td><td class="muted">31,400</td><td class="muted">24.5%</td><td><span class="pill-status good"><i class="fa-solid fa-arrow-up-right-dots"></i> Growing</span></td></tr>
+                  <tr><td>United States</td><td class="muted">28,900</td><td class="muted">22.5%</td><td><span class="pill-status good"><i class="fa-solid fa-arrow-up-right-dots"></i> Growing</span></td></tr>
+                  <tr><td>United Kingdom</td><td class="muted">14,200</td><td class="muted">11.1%</td><td><span class="pill-status info">Steady</span></td></tr>
+                  <tr><td>Germany</td><td class="muted">9,600</td><td class="muted">7.5%</td><td><span class="pill-status good"><i class="fa-solid fa-arrow-up-right-dots"></i> Growing</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-section-head"><h2 class="dash-section-title">Visitor retention</h2></div>
+          <div class="grid-3">
+            <div class="dash-card goal-card">
+              <div class="goal-top"><strong>Day 1 retention</strong><span>48%</span></div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:48%"></div></div>
+            </div>
+            <div class="dash-card goal-card">
+              <div class="goal-top"><strong>Day 7 retention</strong><span>26%</span></div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:26%"></div></div>
+            </div>
+            <div class="dash-card goal-card">
+              <div class="goal-top"><strong>Day 30 retention</strong><span>12%</span></div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:12%"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= REPORTS ================= -->
+      <section class="dash-page" data-page="reports">
+        <div class="dash-page-head">
+          <div>
+            <h1 class="dash-page-title">Reports</h1>
+            <p class="dash-page-desc">Build custom analytics reports and manage scheduled exports.</p>
+          </div>
+          <a href="404.html" class="btn btn-primary btn-sm"><svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2"><use href="#i-plus"/></svg>New export</a>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Custom reports</h2></div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Report</th><th>Owner</th><th>Last run</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td>Monthly traffic summary</td><td class="muted">Marketing team</td><td class="muted">Sep 19, 2026</td><td><a href="404.html" class="btn btn-outline-dark btn-sm"><svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2"><use href="#i-download"/></svg>Download</a></td></tr>
+                  <tr><td>Channel attribution</td><td class="muted">Growth team</td><td class="muted">Sep 12, 2026</td><td><a href="404.html" class="btn btn-outline-dark btn-sm"><svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2"><use href="#i-download"/></svg>Download</a></td></tr>
+                  <tr><td>Landing page performance</td><td class="muted">Product team</td><td class="muted">Sep 4, 2026</td><td><a href="404.html" class="btn btn-outline-dark btn-sm"><svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2"><use href="#i-download"/></svg>Download</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Build a report</h2></div>
+            <div class="dash-form">
+              <div class="dash-field-row">
+                <div class="dash-field">
+                  <label for="anRepType">Metric focus</label>
+                  <select id="anRepType">
+                    <option>Traffic &amp; sessions</option>
+                    <option>Conversion funnel</option>
+                    <option>Audience demographics</option>
+                  </select>
+                </div>
+                <div class="dash-field">
+                  <label for="anRepRange">Date range</label>
+                  <select id="anRepRange">
+                    <option>Last 7 days</option>
+                    <option>Last 30 days</option>
+                    <option>Custom range</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions"><a href="404.html" class="btn btn-primary">Generate report</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-section">
+          <div class="dash-card">
+            <div class="dash-section-head"><h2 class="dash-section-title">Scheduled exports</h2></div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Export</th><th>Frequency</th><th>Next run</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Weekly traffic CSV</td><td class="muted">Weekly</td><td class="muted">Mon, Sep 28</td><td><span class="pill-status good">Active</span></td></tr>
+                  <tr><td>Monthly audience report</td><td class="muted">Monthly</td><td class="muted">Oct 1</td><td><span class="pill-status good">Active</span></td></tr>
+                  <tr><td>Quarterly board deck</td><td class="muted">Quarterly</td><td class="muted">Oct 1</td><td><span class="pill-status warn">Paused</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
