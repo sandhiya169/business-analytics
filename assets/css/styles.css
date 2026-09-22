@@ -1368,6 +1368,7 @@ ul {
   color: var(--muted);
   max-width: 100%;
   margin: 0 0 32px;
+  text-align: justify;
 }
 
 .service-row.reverse .service-copy p {

@@ -37,9 +37,6 @@
     },
     newPassword(value) {
       if (!value) return 'Create a password.';
-      if (value.length < 8 || !/[A-Za-z]/.test(value) || !/\d/.test(value)) {
-        return 'Use at least 8 characters with a letter and a number.';
-      }
       return '';
     },
     confirm(value, form) {

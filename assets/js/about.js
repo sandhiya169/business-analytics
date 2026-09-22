@@ -171,19 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: "\u201cI needed to understand AI well enough to lead through it \u2013 not just delegate it. This course gave me exactly that. I made three strategic decisions differently the week after.\u201d",
             name: "Ronald Benson",
             loc: "LOS ANGELES, CA",
-            avatar: "assets/images/image-3.webp"
+            avatar: "assets/images/images-3.webp"
         },
         {
             quote: "\u201cStackly transformed the way our team approaches data analytics. The insights we gained in just 30 days saved us months of guesswork and helped us close our biggest enterprise deal yet.\u201d",
             name: "Priya Nair",
             loc: "SAN FRANCISCO, CA",
-            avatar: "assets/images/image-2.webp"
+            avatar: "assets/images/images-2.webp"
         },
         {
             quote: "\u201cI was skeptical at first, but the results spoke for themselves. Our operational efficiency jumped by 40% within the first quarter. The platform is intuitive, powerful, and worth every cent.\u201d",
             name: "James Okafor",
             loc: "LONDON, UK",
-            avatar: "assets/images/image-1.webp"
+            avatar: "assets/images/images-1.webp"
         }
     ];
 
