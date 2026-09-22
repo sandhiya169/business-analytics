@@ -1,10 +1,7 @@
-/* ============================================================
-   Stackly — About page styles
-   Extends styles.css (loaded first)
-   ============================================================ */
+
 
 /* ============================================================
-   ABOUT HERO — matches blog page hero style
+   ABOUT HERO 
    ============================================================ */
 
 .about-page-hero {
@@ -457,11 +454,7 @@
 }
 
 /* ============================================================
-   CTA BOX — about page blob shape using border-radius
-   The design shape has:
-     - rounded top-left, bottom-left, bottom-right corners
-     - top-right corner: a notch cut by overlapping a white
-       pseudo-element, giving the "tab" look from the image
+   CTA BOX 
    ============================================================ */
 
 .about-cta-box {
@@ -493,20 +486,6 @@
   user-select: none;
   border-radius: inherit;
 }
-
-/* white notch pseudo-element — sits at top-right, cuts into the corner */
-/* .about-cta-box::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 26%;
-  height: 32%;
-  background: #ffffff;
-  border-radius: 0 0 0 60px;
-  z-index: 1;
-  pointer-events: none;
-} */
 
 /* content sits above image and notch */
 .about-cta-content {
@@ -547,6 +526,7 @@
 .about-cta-box .btn-primary:hover {
   background: var(--purple-dark);
   border-color: var(--purple-dark);
+  color: #fff;
 }
 .about-cta-box .btn-primary .btn-icon {
   background: #fff;
@@ -562,6 +542,7 @@
 }
 .about-cta-box .btn-outline-dark:hover {
   background: rgba(255, 255, 255, 0.75);
+  color: var(--black);
 }
 .about-cta-box .btn-outline-dark .btn-icon {
   background: var(--black);

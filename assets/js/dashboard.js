@@ -1,9 +1,5 @@
 /* ============================================================
-   Stackly — Dashboard behaviour
-   Shared by executive-dashboard.html and analytics-dashboard.html
-   Client-side page switching only. Reads the demo session
-   (sessionStorage / URL) to show the signed-in account; no data is
-   fetched or sent anywhere.
+   Stackly — Dashboard 
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

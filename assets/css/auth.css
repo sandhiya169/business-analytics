@@ -1,7 +1,5 @@
 /* ============================================================
    Stackly — Login & Signup pages
-   Shared by login.html and signup.html
-   Uses the same fonts as styles.css: Baloo 2 + Quicksand
    ============================================================ */
 
 :root {
@@ -104,8 +102,6 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: #fff;
-  /* `clip` (not `hidden`) contains the corner filler without creating a
-     scroll container, so the sticky showcase keeps working */
   overflow: clip;
 }
 

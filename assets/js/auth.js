@@ -1,8 +1,5 @@
 /* ============================================================
-   Stackly — Login & Signup behaviour
-   Validation + demo session only. The signed-in email/role is kept in
-   sessionStorage (this tab) so dashboards can show the account in the
-   header; nothing is sent or verified over the network.
+   Stackly — Login & Signup 
    ============================================================ */
 
 (() => {

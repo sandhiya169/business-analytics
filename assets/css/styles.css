@@ -1,6 +1,5 @@
 /* ============================================================
    Stackly — homepage styles
-   Recreated from Figma SVG reference
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
@@ -43,11 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* AOS fade-left / fade-right render off-screen via translateX, which creates
-   horizontal overflow on narrow viewports. Contain it at section level ONLY:
-   single-axis overflow on html/body turns them into scroll containers, which
-   silently breaks position:sticky descendants (site header) and the mobile
-   menu anchored to it. `clip` (not `hidden`) preserves sticky. */
+
 main,
 .features,
 .services,
@@ -181,6 +176,7 @@ ul {
 
 .btn-primary:hover {
   background: var(--purple-dark);
+  color: #fff;
   box-shadow: 0 8px 24px rgba(137, 128, 241, .40);
 }
 
@@ -192,6 +188,7 @@ ul {
 
 .btn-dark:hover {
   background: #2a2a2e;
+  color: #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
 }
 
@@ -211,6 +208,7 @@ ul {
 .btn-outline-light:hover {
   background: rgba(0, 0, 0, .05);
   border-color: rgba(0, 0, 0, .55);
+  color: var(--black);
 }
 
 .btn-outline-dark {
@@ -1456,10 +1454,6 @@ ul {
    FAQ
    ============================================================ */
 
-/* ============================================================
-   FAQ — redesigned
-   ============================================================ */
-
 .faq {
   position: relative;
   padding: 110px 0 120px;
@@ -1937,8 +1931,16 @@ ul {
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14.5px;
   color: #4a4a6a;
+}
+
+.footer-links a i {
+  min-width: 1em;
+  text-align: center;
 }
 
 .footer-links a:hover {
@@ -2207,10 +2209,7 @@ ul {
     padding: 14px var(--side-pad);
   }
 
-  /* Fullscreen hamburger menu — opaque overlay, no backside content visible.
-     Anchored to the viewport (see .site-header reset below), so it always
-     covers full height even when opened mid-scroll. The sticky header
-     (z-index:100) stays above it, keeping logo + close button tappable. */
+  
   .site-header {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -2251,16 +2250,13 @@ ul {
     transition: transform .25s ease, opacity .25s ease;
   }
 
-  /* Lock backside scroll while the fullscreen menu is open. `clip` (not
-     `hidden`) avoids turning body into a scroll container, which would
-     detach the sticky header and the menu from the viewport. */
+  
   body.menu-open {
     overflow: hidden;
     overflow: clip;
   }
 
-  /* The overlay is a child of the header, so without this it would paint
-     over the logo + hamburger/X. Keep them tappable above it. */
+  
   .logo,
   .menu-toggle {
     position: relative;

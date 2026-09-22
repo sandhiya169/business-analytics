@@ -1,13 +1,10 @@
 /* ============================================================
-       SERVICES PAGE — page-specific styles
-       (extends tokens/components defined in assets/css/styles.css)
+       SERVICES PAGE
        ============================================================ */
 
     .svc-icon{ display:block; }
 
-    /* ================================================================
-       PAGE HERO — Blog-style (matches blog.css .b-page-hero pattern)
-       ================================================================ */
+    
     .svc-hero {
       position: relative;
       overflow: hidden;
@@ -76,9 +73,12 @@
     .svc-tabs{
       display: flex;
       justify-content: center;
+      align-items: stretch;
       flex-wrap: wrap;
       gap: 30px;
       padding: 60px 0 40px;
+      position: relative;
+      z-index: 1;
     }
     .svc-tab{
       display: flex;
@@ -87,6 +87,8 @@
       gap: 18px;
       width: 268px;
       max-width: 100%;
+      text-align: center;
+      color: #000;
     }
     .svc-tab-media{
       position: relative;
@@ -101,6 +103,16 @@
       color: var(--black);
       box-shadow: 0 14px 28px rgba(20,20,40,.08);
       transition: transform .18s ease, box-shadow .18s ease;
+      overflow: visible;
+    }
+    .svc-tab-photo{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      aspect-ratio: 1 / 1.08;
+      border-radius: inherit;
     }
     .svc-tab:hover .svc-tab-media{
       transform: translateY(-4px);
@@ -696,6 +708,19 @@
        ============================================================ */
 
     @media (max-width: 1080px){
+      .svc-tabs{
+        gap: 32px 28px;
+        padding: 48px 0 32px;
+        align-items: stretch;
+      }
+      .svc-tab{
+        flex: 1 1 calc(50% - 28px);
+        width: auto;
+        max-width: 340px;
+        min-width: 0;
+      }
+      .svc-tab-media,
+      .svc-tab-photo{ aspect-ratio: 1 / 1; }
       .svc-info-grid{ grid-template-columns: 1fr; gap: 36px; }
       .svc-included-grid{ grid-template-columns: 1fr 1fr; gap: 20px; }
       .svc-included-grid::before{ display: none; }
@@ -709,10 +734,14 @@
       .svc-hero__blob--a{ width: 300px; height: 300px; top: -140px; left: -100px; }
       .svc-hero__blob--b{ width: 260px; height: 260px; top: -120px; right: -100px; }
       .svc-hero__title{ font-size: clamp(24px, 7vw, 32px); }
+      .svc-hero__title br{ display: none; }
       .svc-hero__desc{ font-size: 14.5px; }
 
-      .svc-tabs{ padding: 30px 22px 50px; gap: 26px; }
-      .svc-tab{ width: 46%; }
+      .svc-tabs{ padding: 30px 0 40px; gap: 28px 18px; }
+      .svc-tab{ flex: 1 1 calc(50% - 18px); max-width: none; gap: 14px; }
+      .svc-tab-media{ border-radius: 22px 22px 22px 8px; }
+      .svc-tab-media::after{ bottom: -14px; width: 36px; height: 36px; }
+      .svc-tab-label{ font-size: 15px; }
 
       .svc-detail{ padding: 26px 0 6px; }
       .svc-detail + .svc-detail{ padding-top: 60px; }
@@ -735,7 +764,8 @@
     }
 
     @media (max-width: 380px){
-      .svc-tab{ width: 100%; }
-      .svc-tab-media{ aspect-ratio: 1 / 0.85; }
+      .svc-tabs{ flex-direction: column; align-items: center; }
+      .svc-tab{ flex: none; width: 100%; max-width: 300px; }
+      .svc-tab-media, .svc-tab-photo{ aspect-ratio: 1 / 0.85; }
       .svc-info-copy p{ font-size: 14px; }
     }

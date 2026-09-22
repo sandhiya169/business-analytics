@@ -1,11 +1,7 @@
 /* ================================================================
    contact.css — Stackly Contact Page
-   Matches Figma design exactly. Builds on shared styles.css tokens.
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   HERO SECTION — Quote + Card + Network Illustration + Avatars
-   ---------------------------------------------------------------- */
 .c-hero {
   background: linear-gradient(180deg, #cfc8f8 0%, #e9e3fb 48%, #f5f3fd 80%, #ffffff 100%);
   padding: 40px 0 60px;
